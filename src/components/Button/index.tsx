@@ -1,18 +1,9 @@
 import type { ButtonHTMLAttributes } from "react";
 
-import styled from "styled-components";
+import * as S from "./styled";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export default function Button(props: ButtonProps) {
-  return <StyledButton {...props}>{props.children}</StyledButton>;
+  return <S.Button {...props}>{props.children}</S.Button>;
 }
-
-const StyledButton = styled.button`
-  padding: 2px 4px;
-  border: 1px solid #666;
-  border-radius: 4px;
-  outline: none;
-  background-color: #fff;
-  font-size: 16px;
-`;

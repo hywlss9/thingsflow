@@ -1,6 +1,6 @@
-import styled from "styled-components";
-
 import Button from "../Button";
+
+import * as S from "./styled";
 
 interface FooterProps {
   load: () => void;
@@ -9,18 +9,9 @@ interface FooterProps {
 
 export default function Footer({ load, reset }: FooterProps) {
   return (
-    <StyledFooter>
+    <S.Footer>
       <Button onClick={load}>load</Button>
       <Button onClick={reset}>초기화</Button>
-    </StyledFooter>
+    </S.Footer>
   );
 }
-
-const StyledFooter = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 4px 16px;
-  border-top: 1px solid #000;
-`;
