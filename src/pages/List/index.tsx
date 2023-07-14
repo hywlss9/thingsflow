@@ -21,7 +21,10 @@ export default function List() {
     setIssues([...response, null]);
   };
 
-  const issuesReset = () => {};
+  const issuesReset = () => {
+    setPage(0);
+    setIssues([]);
+  };
 
   useEffect(() => {
     if (!page) return;
