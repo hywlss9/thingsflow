@@ -34,9 +34,12 @@ export default function List() {
         {issues.map((issue, index) => {
           if (!issue)
             return (
-              <a href="https://thingsflow.com/ko/home" target="__blank">
+              <a
+                key={index}
+                href="https://thingsflow.com/ko/home"
+                target="__blank"
+              >
                 <img
-                  key={index}
                   src="https://hellobot-test.s3.ap-northeast-2.amazonaws.com/image/01fdd797-0477-4717-8d70-8551150463f7"
                   alt="광고"
                 />
