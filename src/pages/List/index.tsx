@@ -15,10 +15,15 @@ export default function List() {
     Array<IssuesResponse | "start" | "banner">
   >([]);
   const [page, setPage] = useState<number>(0);
+  const [isLast, setIsLast] = useState<boolean>(false);
 
   const listRef = useRef<HTMLUListElement>(null);
 
   const startLoad = () => {
+    if (isLast) {
+      alert("마지막 페이지입니다.");
+      return;
+    }
     setPage((prevPage) => (prevPage ? prevPage + 1 : 1));
     setIssues((prevState) => [...prevState, "start"]);
   };
@@ -27,6 +32,7 @@ export default function List() {
     const response = await getIssues({ page });
     if (!response) return;
     setIssues((prevState) => [...prevState, ...response, "banner"]);
+    if (response.length < 10) setIsLast(true);
   };
 
   const issuesReset = () => {
