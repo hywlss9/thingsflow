@@ -25,14 +25,48 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
+  display: flex;
   border: 1px solid #eee;
   border-radius: 4px;
   > a {
     display: block;
+    width: 100%;
     padding: 8px;
     text-decoration: none;
     color: #000;
   }
+`;
+
+export const Content = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+`;
+
+export const InfoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Title = styled.strong`
+  display: flex;
+  gap: 4px;
+  > span {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 500px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+`;
+
+export const Info = styled.span``;
+
+export const CommentBox = styled.div`
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const NotifyIssue = styled.li`

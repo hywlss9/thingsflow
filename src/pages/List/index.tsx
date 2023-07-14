@@ -83,11 +83,17 @@ export default function List() {
                   login,
                 }}
               >
-                <p>#{number}</p>
-                <p>{title}</p>
-                <p>{html_url}</p>
-                <p>{created_at}</p>
-                <p>{comments}</p>
+                <S.Content>
+                  <S.InfoBox>
+                    <S.Title>
+                      #{number} <span>{title}</span>
+                    </S.Title>
+                    <S.Info>
+                      작성자:{login}, 작성일: {created_at}
+                    </S.Info>
+                  </S.InfoBox>
+                  <S.CommentBox>코멘트: {comments}</S.CommentBox>
+                </S.Content>
               </Link>
             </S.Item>
           );
