@@ -18,6 +18,7 @@ export default async function getIssues({
 
     return data;
   } catch {
+    alert("Issue 리스트를 불러오는데 실패했습니다. 다시 시도해주세요.");
     return false;
   }
 }
