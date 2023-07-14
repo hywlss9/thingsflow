@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 
+import { Link } from "react-router-dom";
+
 import getIssues from "../../api/getIssues";
 import type { IssuesResponse } from "../../api/getIssues";
 
 import Footer from "../../components/Footer";
 
 import * as S from "./styled";
-import { Link } from "react-router-dom";
 
 export default function List() {
   const [issues, setIssues] = useState<Array<IssuesResponse | null>>([]);
