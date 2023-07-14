@@ -32,3 +32,10 @@ export const Item = styled.li`
     color: #000;
   }
 `;
+
+export const NotifyIssue = styled.div`
+  margin: 0 auto;
+  padding: 8px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+`;

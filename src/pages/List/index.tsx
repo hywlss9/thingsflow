@@ -10,15 +10,20 @@ import Footer from "../../components/Footer";
 import * as S from "./styled";
 
 export default function List() {
-  const [issues, setIssues] = useState<Array<IssuesResponse | null>>([]);
+  const [issues, setIssues] = useState<
+    Array<IssuesResponse | "start" | "banner">
+  >([]);
   const [page, setPage] = useState<number>(0);
 
-  const handlePage = () => setPage((prevPage) => (prevPage ? prevPage + 1 : 1));
+  const startLoad = () => {
+    setPage((prevPage) => (prevPage ? prevPage + 1 : 1));
+    setIssues((prevState) => [...prevState, "start"]);
+  };
 
   const issuesLoad = async () => {
     const response = await getIssues({ page });
     if (!response) return;
-    setIssues([...response, null]);
+    setIssues((prevState) => [...prevState, ...response, "banner"]);
   };
 
   const issuesReset = () => {
@@ -35,7 +40,12 @@ export default function List() {
     <S.Container>
       <S.List>
         {issues.map((issue, index) => {
-          if (!issue)
+          if (issue === "start") {
+            return (
+              <S.NotifyIssue key={index}>Issue 10개 로딩 시작</S.NotifyIssue>
+            );
+          }
+          if (issue === "banner") {
             return (
               <a
                 key={index}
@@ -48,19 +58,32 @@ export default function List() {
                 />
               </a>
             );
+          }
 
           const {
             id,
             number,
             title,
-            user: { html_url },
             created_at,
             comments,
+            body,
+            user: { html_url, avatar_url },
           } = issue;
 
           return (
             <S.Item key={id}>
-              <Link to={`/detail/${id}`}>
+              <Link
+                to="/detail"
+                state={{
+                  number,
+                  title,
+                  created_at,
+                  comments,
+                  body,
+                  html_url,
+                  avatar_url,
+                }}
+              >
                 <p>{number}</p>
                 <p>{title}</p>
                 <p>{html_url}</p>
@@ -71,7 +94,7 @@ export default function List() {
           );
         })}
       </S.List>
-      <Footer load={handlePage} reset={issuesReset} />
+      <Footer load={startLoad} reset={issuesReset} />
     </S.Container>
   );
 }
