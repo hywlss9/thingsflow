@@ -10,7 +10,7 @@ export default async function getIssues({
         params: {
           page,
           per_page: 10,
-          sort: "comment",
+          sort: "comments",
           direction: "asc",
         },
       }
