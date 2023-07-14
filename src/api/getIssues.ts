@@ -1,23 +1,31 @@
 import axios from "axios";
 
-export default async function getIssues(): Promise<IssuesData | false> {
+export default async function getIssues({
+  page,
+}: GetIssuesProps): Promise<IssuesResponse[] | false> {
   try {
     const { data } = await axios.get(
       `https://api.github.com/repos/angular/angular-cli/issues`,
       {
         params: {
+          page,
           per_page: 10,
+          sort: "comment",
         },
       }
     );
-    console.log({ data });
+
     return data;
   } catch {
     return false;
   }
 }
 
-interface IssuesData {
+interface GetIssuesProps {
+  page: number;
+}
+
+interface IssuesResponse {
   active_lock_reason: null;
   assignee: null;
   assignees: any[];
@@ -85,3 +93,5 @@ interface IssuesData {
     url: string;
   };
 }
+
+export type { GetIssuesProps, IssuesResponse };
