@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
+import dayjs from "dayjs";
 
 import getIssues from "../../api/getIssues";
 import type { IssuesResponse } from "../../api/getIssues";
@@ -65,7 +66,7 @@ export default function List() {
             created_at,
             comments,
             body,
-            user: { html_url, avatar_url, login },
+            user: { avatar_url, login },
           } = issue;
 
           return (
@@ -78,7 +79,6 @@ export default function List() {
                   created_at,
                   comments,
                   body,
-                  html_url,
                   avatar_url,
                   login,
                 }}
@@ -89,7 +89,8 @@ export default function List() {
                       #{number} <span>{title}</span>
                     </S.Title>
                     <S.Info>
-                      작성자:{login}, 작성일: {created_at}
+                      작성자:{login}, 작성일:{" "}
+                      {dayjs(created_at).format("YYYY-MM-DD HH:mm:ss")}
                     </S.Info>
                   </S.InfoBox>
                   <S.CommentBox>코멘트: {comments}</S.CommentBox>

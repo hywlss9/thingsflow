@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 
 import { marked } from "marked";
+import dayjs from "dayjs";
 
 import * as S from "./styled";
 
@@ -30,7 +31,8 @@ export default function Detail() {
           </S.Title>
           <p>
             <S.Info>
-              작성자: {login}, 작성일: {created_at}
+              작성자: {login}, 작성일:{" "}
+              {dayjs(created_at).format("YYYY-MM-DD HH:mm:ss")}
             </S.Info>
           </p>
         </S.InfoBox>
