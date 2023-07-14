@@ -19,12 +19,14 @@ export const List = styled.ul`
   width: 100%;
   height: 100%;
   padding: 8px 0;
+  > li {
+    list-style: none;
+  }
 `;
 
 export const Item = styled.li`
   border: 1px solid #eee;
   border-radius: 4px;
-  list-style: none;
   > a {
     display: block;
     padding: 8px;
