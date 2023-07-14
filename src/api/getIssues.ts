@@ -11,7 +11,7 @@ export default async function getIssues({
           page,
           per_page: 10,
           sort: "comments",
-          direction: "asc",
+          direction: "desc",
         },
       }
     );
