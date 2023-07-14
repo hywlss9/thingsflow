@@ -65,7 +65,7 @@ export default function List() {
             created_at,
             comments,
             body,
-            user: { html_url, avatar_url },
+            user: { html_url, avatar_url, login },
           } = issue;
 
           return (
@@ -80,6 +80,7 @@ export default function List() {
                   body,
                   html_url,
                   avatar_url,
+                  login,
                 }}
               >
                 <p>{number}</p>
