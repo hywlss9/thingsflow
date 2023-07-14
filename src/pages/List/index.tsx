@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
@@ -15,6 +15,8 @@ export default function List() {
     Array<IssuesResponse | "start" | "banner">
   >([]);
   const [page, setPage] = useState<number>(0);
+
+  const listRef = useRef<HTMLUListElement>(null);
 
   const startLoad = () => {
     setPage((prevPage) => (prevPage ? prevPage + 1 : 1));
@@ -37,9 +39,15 @@ export default function List() {
     issuesLoad();
   }, [page]);
 
+  useEffect(() => {
+    if (!listRef.current) return;
+    const list = listRef.current;
+    list.scrollTo({ top: list.scrollHeight, behavior: "smooth" });
+  }, [issues]);
+
   return (
     <S.Container>
-      <S.List>
+      <S.List ref={listRef}>
         {issues.map((issue, index) => {
           if (issue === "start") {
             return (
