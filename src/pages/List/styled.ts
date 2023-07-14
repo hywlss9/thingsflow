@@ -42,4 +42,8 @@ export const NotifyIssue = styled.li`
   border-radius: 4px;
 `;
 
-export const Banner = styled.li``;
+export const Banner = styled.li`
+  img {
+    max-width: 100%;
+  }
+`;
