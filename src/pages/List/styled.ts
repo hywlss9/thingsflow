@@ -22,8 +22,13 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  padding: 8px;
   border: 1px solid #eee;
   border-radius: 4px;
   list-style: none;
+  > a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: #000;
+  }
 `;
