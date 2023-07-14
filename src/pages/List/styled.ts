@@ -51,13 +51,7 @@ export const InfoBox = styled.div`
 export const Title = styled.strong`
   display: flex;
   gap: 4px;
-  > span {
-    display: inline-block;
-    overflow: hidden;
-    max-width: 500px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+  margin-bottom: 8px;
 `;
 
 export const Info = styled.span``;
