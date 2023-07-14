@@ -1,8 +1,8 @@
 import ReactDOM from "react-dom/client";
 
-import List from "./pages/list";
+import Router from "./pages/Router";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-root.render(<List />);
+root.render(<Router />);
