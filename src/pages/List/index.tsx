@@ -83,7 +83,7 @@ export default function List() {
                   login,
                 }}
               >
-                <p>{number}</p>
+                <p>#{number}</p>
                 <p>{title}</p>
                 <p>{html_url}</p>
                 <p>{created_at}</p>
