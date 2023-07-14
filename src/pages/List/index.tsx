@@ -47,16 +47,14 @@ export default function List() {
           }
           if (issue === "banner") {
             return (
-              <a
-                key={index}
-                href="https://thingsflow.com/ko/home"
-                target="__blank"
-              >
-                <img
-                  src="https://hellobot-test.s3.ap-northeast-2.amazonaws.com/image/01fdd797-0477-4717-8d70-8551150463f7"
-                  alt="광고"
-                />
-              </a>
+              <S.Banner key={index}>
+                <a href="https://thingsflow.com/ko/home" target="__blank">
+                  <img
+                    src="https://hellobot-test.s3.ap-northeast-2.amazonaws.com/image/01fdd797-0477-4717-8d70-8551150463f7"
+                    alt="광고"
+                  />
+                </a>
+              </S.Banner>
             );
           }
 

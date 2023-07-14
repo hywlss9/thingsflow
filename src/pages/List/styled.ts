@@ -33,9 +33,11 @@ export const Item = styled.li`
   }
 `;
 
-export const NotifyIssue = styled.div`
+export const NotifyIssue = styled.li`
   margin: 0 auto;
   padding: 8px;
   border: 1px solid #eee;
   border-radius: 4px;
 `;
+
+export const Banner = styled.li``;
