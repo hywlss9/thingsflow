@@ -2,11 +2,16 @@ import styled from "styled-components";
 
 import Button from "../Button";
 
-export default function Footer() {
+interface FooterProps {
+  load: () => void;
+  reset: () => void;
+}
+
+export default function Footer({ load, reset }: FooterProps) {
   return (
     <StyledFooter>
-      <Button>load</Button>
-      <Button>초기화</Button>
+      <Button onClick={load}>load</Button>
+      <Button onClick={reset}>초기화</Button>
     </StyledFooter>
   );
 }
